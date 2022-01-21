@@ -1,10 +1,10 @@
 # Using a single workspace:
 terraform {
   backend "remote" {
-    organization = "jb-io"
+    organization = "hashidemos"
 
     workspaces {
-      name = "gitops-hashicat-aws"
+      name = "hashicat-aws-gitops"
     }
   }
 }

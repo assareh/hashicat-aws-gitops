@@ -92,7 +92,6 @@ data aws_ami "ubuntu" {
 
   filter {
     name = "name"
-    #values = ["ubuntu/images/hvm-ssd/ubuntu-disco-19.04-amd64-server-*"]
     values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
   }
 
@@ -130,8 +129,6 @@ resource aws_instance "hashicat" {
 
   tags = {
     Name  = "${var.prefix}-hashicat-instance"
-    ttl   = "-1"
-    Owner = "jbradley@hashicorp.com"
   }
 }
 
