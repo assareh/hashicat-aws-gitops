@@ -7,7 +7,7 @@
 
 variable "instance_count" {
   description = "number of hashicat instances to create"
-  default     = 3
+  default     = 1
 }
 
 variable "prefix" {
@@ -32,11 +32,6 @@ variable "subnet_prefix" {
 variable "instance_type" {
   description = "Specifies the AWS instance type."
   default     = "t3.micro"
-}
-
-variable "admin_username" {
-  description = "Administrator user name for mysql"
-  default     = "hashicorp"
 }
 
 variable "height" {

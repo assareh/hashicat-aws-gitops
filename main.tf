@@ -16,7 +16,8 @@ resource "aws_vpc" "hashicat" {
   enable_dns_hostnames = true
 
   tags = {
-    name = "${var.prefix}-vpc"
+    name        = "${var.prefix}-vpc-${var.region}"
+    environment = "Production"
   }
 }
 
@@ -66,11 +67,6 @@ resource "aws_security_group" "hashicat" {
   tags = {
     Name = "${var.prefix}-security-group"
   }
-}
-
-resource "random_id" "app-server-id" {
-  prefix      = "${var.prefix}-hashicat-"
-  byte_length = 8
 }
 
 resource "aws_internet_gateway" "hashicat" {
@@ -137,6 +133,8 @@ resource "aws_instance" "hashicat" {
 
   tags = {
     Name = "${var.prefix}-hashicat-instance"
+    #    Department = "devops team"
+    #    Billable   = "true"
   }
 }
 
