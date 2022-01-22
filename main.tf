@@ -1,5 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "=3.42.0"
+    }
+  }
+}
+
 provider "aws" {
-  version = "~> 2.0"
   region  = var.region
 }
 
@@ -92,7 +100,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
   }
 
   filter {
@@ -167,7 +175,8 @@ resource "null_resource" "configure-cat-app" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo add-apt-repository universe",
+      "sudo apt -y update",
+      "sleep 15",
       "sudo apt -y update",
       "sudo apt -y install apache2",
       "sudo systemctl start apache2",
