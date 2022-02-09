@@ -7,7 +7,7 @@
 
 variable "instance_count" {
   description = "number of hashicat instances to create"
-  default     = 1
+  default     = 2
 }
 
 variable "prefix" {
