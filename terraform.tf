@@ -1,6 +1,6 @@
-# Using a single workspace:
+# https://www.terraform.io/cli/cloud/settings#the-cloud-block
 terraform {
-  backend "remote" {
+  cloud {
     organization = "hashidemos"
 
     workspaces {
