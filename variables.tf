@@ -5,6 +5,10 @@
 # Terraform code. If you create a variable with no default, the user will be
 # prompted to enter it (or define it via config file or command line flags.)
 
+variable "dev_role_arn" {
+  description = "Amazon Resource Name of the dev role to be assumed (this was created in the producer workspace)"
+}
+
 variable "instance_count" {
   description = "number of hashicat instances to create"
   default     = 2
